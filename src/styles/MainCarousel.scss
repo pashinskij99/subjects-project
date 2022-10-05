@@ -1,0 +1,206 @@
+.app-slider {
+    width: 100%;
+    z-index: 30;
+    //height: 100%;
+    background-color: #f2f2eb;
+    .slide-1.slide-i {
+        transform: translate(0px, 0px);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        height: 100vh !important;
+        z-index: 100;
+        background: transparent;
+    }
+
+    .slide-2.slide-i {
+        transform: translate(0px, 0px);
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh !important;
+    }
+
+    .slide-3.slide-i {
+        height: 100vh !important;
+        z-index: 3 !important;
+        width: 100%;
+        position: relative;
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-title {
+            pointer-events: none;
+            z-index: 5;
+            position: absolute;
+            top: 50%;
+        }
+    }
+
+    .slide-4.slide-i {
+        height: 100vh !important;
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+        .img_bg {
+            background: #000000;
+            width: 100%;
+            height: 100vh;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .slide-5.slide-i {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        height: 100vh !important;
+        background-color: lightsteelblue;
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    .slide-6 .anchor_slide-wrapper {
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    .slide-7.slide-i {
+        height: 150vh !important;
+        @media screen and (max-width: 767px){
+            height: 100vh !important;
+        }
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+    }
+    .slide-8.slide-i {
+        height: max-content!important;
+        transform: translate(0px, 0px);
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .slide-i {
+        height: 100vh !important ;
+        z-index: 2;
+        background-color: #f2f2eb;
+    }
+
+    [data-theme='THEME_DARK'] {
+        .main-title {
+            color: #fff;
+        }
+    }
+
+    [data-theme='THEME_LIGHT'] {
+        .main-title {
+            color: #000;
+        }
+    }
+
+    .swiper-slide-next,
+    .swiper-slide-prev {
+        .overlap-video {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.check_points {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width: 100%;
+    height: 100%;
+    .point {
+        width: 100%;
+        height: 1px;
+        background: transparent;
+    }
+}
+
+.slide-3 {
+    .anchor_slide-wrapper {
+        height: 100% !important;
+        .openglWrapper {
+            transform: translateX(25%);
+        }
+        @media screen and (max-width: 767px) {
+            .openglWrapper {
+                transform: translateX(0%);
+            }
+        }
+    }
+}
+
+//.slide-5 {
+//    background-color: lightblue !important;
+//}
+
+.slide-6,
+.slide-7 {
+    .container {
+        height: 100% !important;
+    }
+}
+
+.swiper-slide-8-active {
+    .created-list {
+        li {
+            opacity: 1;
+        }
+    }
+}
+
+.slide-7 {
+    .container {
+        .anchor_slide-wrapper {
+            height: 100% !important;
+            .openglWrapper {
+                transform: translateX(0%);
+            }
+            @media screen and (max-width: 767px) {
+                .openglWrapper {
+                    transform: translateX(0%);
+                }
+            }
+        }
+    }
+}
+
+@for $i from 1 to 8 {
+    .swiper-slide-8-active .created-list li:nth-child(#{$i}) {
+        transition-delay: $i * 0.35s + 0.8s;
+    }
+}

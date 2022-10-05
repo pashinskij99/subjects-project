@@ -1,0 +1,82 @@
+@mixin navigation-mobile {
+  display: none;
+  padding: 0 5rem ;
+  &__btn {
+    font-size: 5rem ;
+  }
+}
+
+@mixin navigation-desktop {
+  padding: 0 rem(40);
+  &__btn {
+    font-size: rem(18);
+  }
+}
+
+
+.navigation {
+  @media only screen and (min-width: 100px) {@media only screen and (max-width: 480px) {
+    @include navigation-mobile
+  }}
+  @media only screen and (min-width: 481px) {
+    @include navigation-desktop
+  }
+  position: fixed;
+  top: rem(40);
+  left: 0;
+  width: 100%;
+  z-index: 40;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__wrap-btn {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(rem(20), 0, 0);
+    transition: opacity .325s ease, visibility .325s ease, transform .325s ease;
+
+    .app--load & {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &__btn {
+    line-height: 1;
+    color: #fff;
+    font-family: $bodoni;
+    opacity: .5;
+    transition: opacity .5s ease-in-out, color .5s ease-in-out;
+    cursor: pointer;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      content: '';
+      top: 50%;
+      left: 50%;
+      min-width: rem(24);
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    .theme_light & {
+      color: #000;
+    }
+
+    &.navigation__btn--active {
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@for $i from 1 to 5 {
+  .navigation__wrap-btn:nth-child(#{$i}) { transition-delay: $i * .5s + 1s; }
+}

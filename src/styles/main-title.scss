@@ -1,0 +1,140 @@
+@mixin title-mobile {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            position: fixed;
+            //top: calc(var(--vh, 1vh) * 30) !important;
+            //top: 250px !important;
+            //left: 10vw !important;
+        }
+    }
+}
+
+@mixin main-title-mobile {
+    text-align: justify;
+    span {
+        word-spacing: -0.2rem;
+        font-size: 5.2rem;
+    }
+    .chapter-name {
+        word-spacing: -2.3rem !important;
+        &:after {
+            content: '\a';
+            white-space: pre;
+        }
+    }
+}
+
+@media only screen and (min-width: 100px) {
+    @media only screen and (max-width: 480px) {
+        .title8 {
+            span {
+                margin: 0 !important;
+            }
+        }
+        .title3,
+        .title4,
+        .title6,
+        .title7,
+        .title8 {
+            margin: 0 auto !important;
+        }
+        .title3,
+        .title7 {
+            //top: calc(var(--vh, 1vh) * 30) !important;
+            //top: 250px !important;
+        }
+        .title8 {
+            position: fixed !important;
+            //top: 285px !important;
+        }
+        .title-8__wrapper {
+            //top: calc(var(--vh, 1vh) * -4) !important;
+            //top: -35px !important;
+        }
+    }
+}
+
+.main-title {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            @include main-title-mobile;
+        }
+    }
+
+    .chapter-name {
+        //font-family: $edu;
+        margin: 0 rem(10);
+    }
+
+}
+
+.title {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    //transition: all 0.7s linear;
+}
+
+.title2 {
+    width: 83.8% !important;
+    right: auto;
+    justify-content: flex-start !important;
+    span {
+        width: 100%;
+        img {
+            //height: 60%;
+        }
+    }
+}
+
+.title1,
+.title2,
+.title3,
+.title7 {
+    top: 45%;
+}
+
+.title4,
+.title6 {
+    @include title-mobile;
+}
+
+@media only screen and (min-width: 481px) {
+    .title7 {
+        left: rem(180);
+    }
+}
+
+@media only screen and (min-width: 100px) {
+    @media only screen and (max-width: 480px) {
+        .descr__slide-6 {
+            position: fixed !important;
+            top: 90rem !important;
+        }
+    }
+}
+
+.title-8__wrapper {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0s linear;
+    .title8 {
+        position: relative;
+    }
+}
+
+.title4,
+.title7 {
+    text-align: start;
+    margin: 0;
+}

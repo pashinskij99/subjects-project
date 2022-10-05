@@ -1,0 +1,43 @@
+@mixin portrait-slider-mobile {
+    width: 87.5%;
+    height: 87.5vw;
+    transform: translateY(40%);
+}
+
+@mixin portrait-slider-desktop {
+    width: 41.9vw;
+    height: 41.9vw;
+    left: 50%;
+}
+
+.portrait-slider {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            @include portrait-slider-mobile;
+        }
+    }
+    @media only screen and (min-width: 481px) {
+        @include portrait-slider-desktop;
+    }
+    position: absolute !important;
+    z-index: 4;
+    pointer-events: none;
+    //transform: translate3d(-50%, -50%, 0);
+
+    .swiper-slide {
+        overflow: visible;
+        position: relative;
+        &-active {
+            .created-list {
+                li {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    img {
+        position: absolute;
+        width: 100%;
+    }
+}

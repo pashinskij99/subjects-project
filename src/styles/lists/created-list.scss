@@ -1,0 +1,43 @@
+@mixin created-list-mobile {
+    position: fixed;
+    text-align: justify;
+    width: 70%;
+    top: 450px;
+    margin-left: 15%;
+    margin-right: 15%;
+    li {
+        margin: 2rem 0;
+        font-size: 3rem;
+    }
+}
+
+@mixin created-list-desktop {
+    li {
+        font-size: rem(16);
+        margin-bottom: rem(5);
+    }
+}
+
+.created-list {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            @include created-list-mobile;
+        }
+    }
+    @media only screen and (min-width: 481px) {
+        @include created-list-desktop;
+    }
+    li {
+        transition: opacity 0.4s ease;
+        opacity: 0;
+        line-height: 1.2;
+    }
+
+    &__name {
+        margin-right: rem(15);
+    }
+
+    &__position {
+        font-family: $bodoni;
+    }
+}

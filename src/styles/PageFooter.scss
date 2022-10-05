@@ -1,0 +1,98 @@
+@mixin page-footer-mobile {
+    &__menu {
+        a {
+            font-size: 1.4rem;
+        }
+    }
+    .page-footer__left {
+        p {
+            font-size: 1.4rem;
+        }
+        a {
+            width: 21.75rem;
+        }
+    }
+}
+
+@mixin page-footer-desktop {
+    &__menu {
+        a {
+            font-size: rem(13);
+        }
+    }
+}
+
+.page-footer {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            @include page-footer-mobile;
+        }
+    }
+    @media only screen and (min-width: 481px) {
+        @include page-footer-desktop;
+    }
+    position: relative;
+    background: #0c0c0c;
+    z-index: inherit;
+    height: rem(360);
+    padding: rem(40) rem(40) 0;
+
+    &__left {
+        a {
+            opacity: 0.8;
+            transition: opacity 0.3s ease-in-out;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__i {
+        padding: rem(40) 0 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &__menu {
+        margin-bottom: rem(25);
+        a {
+            display: block;
+            opacity: 0.5;
+            // font-size: 12px;
+            line-height: 1.2;
+            color: #fff;
+            font-family: $bodoni;
+            margin-bottom: rem(5);
+            transition: opacity 0.3s ease-in-out;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+.sutter-system-logo {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            width: rem(300) !important;
+        }
+    }
+    display: block;
+    width: rem(180);
+    margin-bottom: rem(10);
+}
+.copy {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            margin-bottom: 4.5rem !important;
+        }
+    }
+    margin-bottom: rem(40);
+    font-size: rem(14);
+    color: #fff;
+    font-family: $bodoni;
+}
+.subjects-signature-logo {
+    display: block;
+    width: rem(220);
+}

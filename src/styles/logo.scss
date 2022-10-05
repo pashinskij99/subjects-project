@@ -1,0 +1,103 @@
+@mixin logo-mobile {
+    font-size: 2rem !important;
+    top: 10rem;
+    width: 76%;
+    left: 12%;
+    right: 12%;
+    .textAnimation {
+        span {
+            &:first-child {
+                font-size: 3rem !important;
+            }
+            font-size: 3rem !important;
+        }
+    }
+}
+
+.logo {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            @include logo-mobile;
+        }
+    }
+    position: fixed;
+    z-index: 20;
+    left: rem(40);
+    bottom: rem(40);
+    font-size: rem(18);
+    font-family: $bodoni;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s linear;
+
+    .scrollTop {
+        color: #fff;
+    }
+
+    .textSubAnimation {
+        overflow: hidden;
+        .off__translate {
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out,
+                margin 0.8s ease-in-out !important;
+        }
+        span {
+            margin-right: rem(6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out,
+                transform 1.2s ease-in-out, margin 0.8s ease-in-out;
+        }
+        .app--load & {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .textAnimation {
+        span {
+            margin-right: rem(10);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease-in-out, visibility 0.5s ease-in-out,
+                transform 0.7s ease-in-out, margin 0.8s ease-in-out;
+
+            &:first-child {
+                width: fit-content;
+                overflow: inherit;
+                font-size: rem(24);
+                //font-family: $edu;
+                text-transform: uppercase;
+                opacity: 1 !important;
+                visibility: visible;
+            }
+        }
+        .app--load & {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &.logo--hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.logo--hideText {
+        span {
+            &:not(:first-child) {
+                opacity: 0;
+                visibility: hidden;
+                transition-delay: 0s;
+            }
+        }
+    }
+
+    .theme_light & {
+        color: #000;
+    }
+
+    .theme_dark & {
+        color: #fff;
+    }
+}

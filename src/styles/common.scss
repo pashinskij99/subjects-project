@@ -1,0 +1,259 @@
+@mixin wallet-mobile {
+    font-size: 3.5rem !important;
+    font-weight: 300;
+    border: none !important;
+    left: 50%;
+    right: 50%;
+    .theme_light & {
+        border: 1px solid #000;
+        color: #000;
+        &:hover {
+            background: #000;
+            color: #fff;
+        }
+    }
+}
+
+html {
+    font-size: 1.116vw;
+    -webkit-overflow-scrolling: touch;
+    @include respond-to(tablet) {
+        font-size: 1.35vw;
+    }
+    scroll-behavior: smooth !important;
+}
+
+body {
+    scroll-behavior: smooth !important;
+    overflow-x: hidden !important;
+    height: 100%;
+    width: 100vw;
+}
+
+#root {
+    //height: 540vh;
+    //position: fixed;
+}
+
+.App {
+    height: 100%;
+    //position: fixed;
+    //top: 0;
+}
+
+.app-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0c0c0c;
+    transition: background 0.7s ease-in-out;
+
+    .theme_light & {
+        background: #fff;
+
+        .main-title {
+            color: #000;
+        }
+    }
+}
+
+.scroll-content {
+    height: 100% !important;
+}
+
+.slide-6 {
+    transform: translate(0px, 0px);
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slide-7 {
+    transform: translate(0px, 0px);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-4 .inner h2 {
+    position: fixed;
+    top: 50%;
+    z-index: 0;
+}
+
+.slide-5 .inner {
+    z-index: 2;
+}
+.openglWrapper {
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner {
+    z-index: 100;
+    padding: 0 rem(180);
+    width: 100%;
+    // z-index: 2;
+}
+
+.spinner {
+    animation: rotate 2s linear infinite;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+
+    & .path {
+        stroke: rgb(255, 255, 255);
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+.theme_light .logo .textAnimation {
+    color: #000;
+}
+
+@for $i from 1 to 6 {
+    @if ($i > 1) {
+        .app--load .logo span:nth-child(#{$i}) {
+            opacity: 0;
+        }
+    }
+
+    .off__translate .is--first_page .textAnimation__i:nth-child(#{$i}) {
+        transition-delay: 0.35s !important;
+    }
+    .app--load .logo .is--first_page span:nth-child(#{$i}) {
+        transition-delay: $i * 0.35s;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.title2,
+.title3,
+.title7 {
+    top: 45%;
+}
+
+.title7 {
+    left: rem(180);
+}
+.title-8__wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .title8 {
+        position: relative;
+    }
+}
+
+.title6 {
+    left: unset;
+    right: unset;
+    text-align: start;
+    margin: 0;
+}
+
+.theme_dark .slide-i {
+    background: #0c0c0c !important;
+    transition: background 0.7s ease-in-out;
+}
+
+.theme_light .slide-i {
+    background: #fff;
+    transition: background 0.7s ease-in-out;
+}
+
+.theme_dark .slides_wrapper {
+    background: #0c0c0c;
+    transition: background 0.7s ease-in-out;
+}
+
+.theme_light .slides_wrapper {
+    background: #fff;
+    transition: background 0.7s ease-in-out;
+}
+
+//.title {
+//    position: fixed;
+//    height: 100%;
+//    width: 100%;
+//    top: 0;
+//    z-index: 4;
+//    transition: all 0.7s linear;
+//}
+
+//.theme_light {
+//    .main-title {
+//        color: #000;
+//    }
+//}
+
+.theme_dark {
+    .main-title {
+        color: #fff;
+    }
+}
+
+.created-list {
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin-top: rem(20);
+}
+
+.swiper-slide-8-active .created-list {
+    opacity: 1;
+}
+
+.anchor_slide-wrapper {
+    // position: relative;
+    // height: 100rem;
+    // width: 100vw;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

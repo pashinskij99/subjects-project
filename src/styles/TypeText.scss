@@ -1,0 +1,117 @@
+@mixin typeText-mobile {
+    margin-left: 1rem;
+    &--portraits {
+        position: fixed;
+        top: 43.5% !important;
+        left: 10% !important;
+        width: 80% !important;
+        right: 10% !important;
+        font-size: 5rem !important;
+    }
+    &--panorama {
+        //top: calc(var(--vh, 1vh) * 25) !important;
+        top: 210px !important;
+        left: 2% !important;
+    }
+    &--statue {
+        //top: calc(var(--vh, 1vh) * 4) !important;
+        top: 35px !important;
+    }
+    position: relative;
+    width: 28rem;
+    font-size: 2.5rem;
+    left: 5%;
+}
+@mixin typeText-desktop {
+    font-size: rem(13);
+}
+
+.mini_text {
+    position: absolute;
+    top: 60%;
+    left: rem(180);
+    width: 13.75rem;
+    height: 13.75rem;
+}
+.hide {
+    opacity: 0 !important;
+}
+
+.descr__slide-6 .typeText {
+    top: rem(80);
+    // right: rem(260);
+    // left: rem(180);
+    color: #000;
+    text-align: left;
+}
+
+.descr__slide-4 .typeText {
+    top: rem(80);
+    // color: #fff;
+    // left: rem(180);
+    color: #fff;
+    text-align: left;
+}
+
+.typeText {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            @include typeText-mobile;
+        }
+    }
+    @media only screen and (min-width: 481px) {
+        @include typeText-desktop;
+    }
+    width: rem(220);
+    position: absolute;
+    z-index: 20;
+    // font-size: 12px;
+    line-height: 1.2;
+    &--portraits {
+        font-family: 'bodoni_72book', serif;
+        white-space: pre-wrap;
+        text-align: center;
+        font-size: 1.625rem;
+        width: 70%;
+        left: 15%;
+        top: 47.5%;
+        color: white;
+    }
+
+    .slide-4 & {
+        top: 70%;
+        left: rem(180);
+        color: #fff;
+        text-align: left;
+    }
+
+    .slide-6 & {
+        top: 70%;
+        // left: rem(180);
+        right: rem(260);
+        color: #000;
+        text-align: left;
+    }
+}
+
+.random-char {
+    display: inline;
+}
+
+.anim-typeText-enter {
+    opacity: 0;
+}
+
+.anim-typeText-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.anim-typeText-exit {
+    opacity: 1;
+}
+
+.anim-typeText-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+}

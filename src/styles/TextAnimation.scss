@@ -1,0 +1,96 @@
+.section_animate {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.section_animate_i {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.swiper-slide-active .section_animate.section_animate_i {
+    opacity: 1;
+}
+
+@mixin textAnimation-mobile {
+    left: 50%;
+    right: 50%;
+}
+
+.textAnimation {
+    @media only screen and (min-width: 100px) {
+        @media only screen and (max-width: 480px) {
+            @include textAnimation-mobile;
+        }
+    }
+    transition: all 0.3s ease;
+    &__i {
+        display: inline-block;
+        margin-right: 3px;
+        line-height: 1;
+        opacity: 0;
+        transition: opacity 1.6s ease-in-out, visibility 1s ease-in-out;
+
+        &:last-child {
+            margin-right: 0;
+
+            .chapter-name {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &--show {
+        .textAnimation__i {
+            opacity: 1;
+        }
+    }
+    .swiper-slide-active & {
+        .textAnimation__i {
+            opacity: 0;
+        }
+    }
+}
+
+@for $i from 1 to 10 {
+    .swiper-slide-2-active .title2,
+    .swiper-slide-3-active .title3,
+    .swiper-slide-4-active .title4,
+    .swiper-slide-6-active .title6,
+    .swiper-slide-7-active .title7,
+    .swiper-slide-8-active .title8 {
+        .textAnimation__i:nth-child(#{$i}) {
+            transition-delay: $i * 0.2s !important;
+            opacity: 1;
+        }
+    }
+
+    .hide__title .title2,
+    .title3,
+    .title4,
+    .title6,
+    .title7,
+    .title8 {
+        .textAnimation__i:nth-child(#{5 - $i}) {
+            transition-delay: $i * 0.1s !important;
+            opacity: 0;
+        }
+    }
+}
+
+.hide__title {
+    .title2,
+    .title3,
+    .title4,
+    .title6,
+    .title7,
+    .title8 {
+        .textAnimation__i {
+            transition: opacity 1s ease-out, visibility 1s ease-in-out;
+        }
+    }
+}
+
+.hide__title .textAnimation__i {
+    transition-delay: 0.15s;
+    transition: all 0.05s ease-out;
+}
